@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "sherwood",
+  "version": "1.0.0",
+  "description": "Fleetia Chrome Extension",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ],
+  "background": {
+    "service_worker": "background/index.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content/index.js"
+      ]
+    }
+  ],
+  "chrome_url_overrides": {
+    "newtab": "newtab/index.html"
+  }
+} 
